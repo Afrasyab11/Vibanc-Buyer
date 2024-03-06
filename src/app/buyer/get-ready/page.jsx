@@ -6,7 +6,7 @@ export default function HandleQuestion() {
   return (
     <>
       <NavigationBar />
-      <InterestTypes />
+      <IdealStartup />
     </>
   );
 }
