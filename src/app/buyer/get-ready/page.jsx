@@ -6,7 +6,7 @@ export default function HandleQuestion() {
   return (
     <>
       <NavigationBar />
-      {/* <QuestionStep /> */}
+      <QuestionStep />
     </>
   );
 }
