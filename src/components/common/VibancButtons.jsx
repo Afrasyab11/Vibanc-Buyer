@@ -5,6 +5,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { RiLoader4Line } from 'react-icons/ri';
 import { FaArrowRight } from 'react-icons/fa';
+import { IoCloseOutline } from "react-icons/io5";
 
 
 function VibancButton( { isDisabled, isLoader, isIcon, text, className,onClick, ...rest }) {
@@ -54,12 +55,12 @@ function OutlineVibancButton(props) {
     // Define the base classes based on the disabled state
 
     return (
-        <Button variant="outline" className={`outline outline-1 outline-[#234C46] text-[#234C46] rounded-full ${className}`} {...rest}>
+        <Button variant="outline" className={`border-border_light text-[#234C46] rounded-full sm:text-[11px] md:text-[12px] xl:text-[12px] 2xl:text-[18px] sm:py-0 text-center  ${className}`} {...rest}>
             {text}
         </Button>
     );
 }
-function WithoutVibancButton(props) {
+function WithoutBorderVibancButton(props) {
     const { text, className, ...rest } = props;
     // Define the base classes based on the disabled state
 
@@ -70,8 +71,19 @@ function WithoutVibancButton(props) {
     );
 }
 
+function LightRemoveVibancButton({ isDisabled, isLoader, isIcon, text, className,onClick, ...rest }) {
+    const baseClasses = isDisabled ? 'rounded-full bg-[#519187] px-6' : 'rounded-full bg-[#234c46] px-6';
+    // Define the base classes based on the disabled state
+
+    return (
+        <Button className={`bg-[#ABD0C6] text-[#234C46] sm:text-[11px] md:text-[12px] xl:text-[12px] 2xl:text-[18px] rounded-full hover:bg-bg-[#ABD0C6] ${className}`} {...rest}>
+            {text}
+            {isIcon && <IoCloseOutline size={20} onClick={onClick} className='inline-block ml-2 text-green_dark' />}
+        </Button>
+    );
+}
 
 
 
 
-export { VibancButton, LightVibancButton, GhostVibancButton, OutlineVibancButton,WithoutVibancButton };
+export { VibancButton, LightVibancButton, GhostVibancButton, OutlineVibancButton,WithoutBorderVibancButton ,LightRemoveVibancButton};

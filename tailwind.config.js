@@ -9,6 +9,13 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      'sm': '320px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -27,16 +34,27 @@ module.exports = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
+      
+      
+        
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        green_dark:'#234C46',
-        green_light:'#1C2C29',
-        bg_light_green:'#E3F3EF',
-        bg_light_green:'#E3F3EF',
-        green:"#009F88",
-        light_secondary:"#FEFCFB",
+        dark_color: "#161B15",
+        bg_light: "#FFFFFF",
+        green_dark: "#234C46",
+        green_light: "#1C2C29",
+        bg_light_green: "#E3F3EF",
+        green: "#009F88",
+        gray:"#ABD0C64D",
+        gray_color:"#ACACAC",
+        border_light: "#ABD0C666",
+        border_black: "#1C2C29",
+        light_secondary: "#FEFCFB",
+        label_color: "#2E2E2E99",
+        semi_dark:"#2E2E2E",
+        orange_color:"#FF7236",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -57,6 +75,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // primary: "#234C46",
       },
       borderRadius: {
         lg: "var(--radius)",

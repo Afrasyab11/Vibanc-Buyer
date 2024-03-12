@@ -121,7 +121,7 @@ export default function LoginForm() {
                         </Link>
 
                         <Button
-                            className="mx-auto rounded-3xl font-bold w-[160px] bg-[#234C46] flex justify-center"
+                            className="mx-auto rounded-3xl font-bold w-[160px] bg-[#234C46] flex justify-center"  
                         >
                             Login
                         </Button>

@@ -7,9 +7,7 @@ import ThanksForSubmitting from '@/components/seller_components/ThanksForSubmitt
 function page() {
   return (
    <>
-    {/* <GetReadyForMarketPlace/> */}
-    {/* <DescribeStartup/> */}
-    <ThanksForSubmitting/>
+  
     
 
    

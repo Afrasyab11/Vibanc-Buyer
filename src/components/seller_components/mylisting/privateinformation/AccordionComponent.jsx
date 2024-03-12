@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -7,10 +8,19 @@ import {
 import { FaPlus } from "react-icons/fa6";
 
 export function AccordionComponent() {
+  const [openItem, setOpenItem] = useState(null); // State to track the currently open item
+
+  const toggleItem = (itemValue) => {
+    setOpenItem(openItem === itemValue ? null : itemValue);
+  };
+
   return (
-    <Accordion type="single" collapsible className="w-full mt-12 border-t">
-      <AccordionItem value="item-1">
-        <AccordionTrigger className="no-decoration">
+    <Accordion type="multiple" collapsible className="w-full mt-12 border-t">
+      <AccordionItem value="item-1" isOpen={openItem === "item-1"}>
+        <AccordionTrigger
+          className="no-decoration"
+          onClick={() => toggleItem("item-1")}
+        >
           Seller Details
         </AccordionTrigger>
         <AccordionContent>
@@ -28,8 +38,13 @@ export function AccordionComponent() {
           </div>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger className="no-decoration">
+      {/* Repeat for other accordion items */}
+      {/* AccordionItem 2 */}
+      <AccordionItem value="item-2" isOpen={openItem === "item-2"}>
+        <AccordionTrigger
+          className="no-decoration"
+          onClick={() => toggleItem("item-2")}
+        >
           Startup Details
         </AccordionTrigger>
         <AccordionContent>
@@ -47,8 +62,12 @@ export function AccordionComponent() {
           </div>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger className="no-decoration">
+      {/* AccordionItem 3 */}
+      <AccordionItem value="item-3" isOpen={openItem === "item-3"}>
+        <AccordionTrigger
+          className="no-decoration"
+          onClick={() => toggleItem("item-3")}
+        >
           P&L Statement
         </AccordionTrigger>
         <AccordionContent>
@@ -64,8 +83,12 @@ export function AccordionComponent() {
           </div>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-4">
-        <AccordionTrigger className="no-decoration">
+      {/* AccordionItem 4 */}
+      <AccordionItem value="item-4" isOpen={openItem === "item-4"}>
+        <AccordionTrigger
+          className="no-decoration"
+          onClick={() => toggleItem("item-4")}
+        >
           Documents and Files
         </AccordionTrigger>
         <AccordionContent>

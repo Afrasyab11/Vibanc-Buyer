@@ -11,6 +11,7 @@ import {
 import CardList from '../CardList';
 import { graphics, icons } from "@/assets/index.js";
 import { VibancButton, GhostVibancButton, } from "@/components/common/VibancButtons";
+import { useRouter } from 'next/navigation';
 //data from figma design:
 const CardListData = [
     {
@@ -37,14 +38,19 @@ const CardListData = [
 
 
 
-function GetReadyForMarketPlace() {
+function GetReadyForMarketPlace({ setGetReadyStep }) {
+
+    const router=useRouter()
+    const handledClick = () => {
+        setGetReadyStep("describe_startup")
+    }
     return (
         <>
             <section className="flex flex-col lg:flex-row gap-4 justify-center items-center p-4 m-auto">
 
 
                 <section id="getReadyText">
-                    <Card className="border-none">
+                    <Card className="border-none shadow-none">
                         <CardHeader>
                             <CardTitle className='text-[#234C46] text-2xl font-bold'>Let’s get you ready for the marketplace</CardTitle>
                             <CardDescription>Get pre-approved for listing</CardDescription>
@@ -70,13 +76,22 @@ function GetReadyForMarketPlace() {
                         </CardContent>
 
                         <CardFooter>
+                            <div>
                             <div className='flex gap-x-4'>
-                                <GhostVibancButton text='Not Now' className='' />
-                                <VibancButton text="Awesome let's go" isIcon={true} className='' />
+                                <GhostVibancButton text='Not Now' className=''  onClick={()=>{router.push("/seller/my-listing")}} />
+                                <VibancButton text="Awesome let's go" isIcon={true} className='' onClick={handledClick} />
                             </div>
+                            <div className='text-[16px] font-normal my-4 px-3 '>
+                                This should take about 2 minutes to complete.
+                            </div>
+                            </div>
+                            
+                           
                         </CardFooter>
-
+                       
+                       
                     </Card>
+
                 </section>
                 <section id="getReadyGraphic">
                     <div>

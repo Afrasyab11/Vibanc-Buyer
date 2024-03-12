@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '@/assets/images/Capa_1.png';
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { Dialog } from '@/components/ui/dialog';
 
 export default function Todo(props) {
     const [index, setIndex] = useState(0);
@@ -25,12 +26,17 @@ export default function Todo(props) {
         },
     ];
 
+    const [open, setOpen] = useState(true);
+
+    const toggleModal = () => {
+        setOpen(!open)
+    }
     const handleNext = () => {
-        setIndex(index+1);
+        setIndex(index + 1);
     };
 
     const handlePrevious = () => {
-        setIndex(index-1);
+        setIndex(index - 1);
     };
 
     return (
@@ -58,10 +64,12 @@ export default function Todo(props) {
             <div className="flex w-full mt-4 pl-6 lg:mx-0">
                 <div className="w-[50%] font-bold text-sm">{index + 1} of {todoData.length}</div>
                 <div className="w-[50%] flex gap-2">
-                    <button className='cursor-pointer'  onClick={handlePrevious} disabled={index === 0}><FaArrowLeftLong className={`${index === 0 ? 'text-gray-400':''}`} /></button>
-                    <button className='cursor-pointer'  onClick={handleNext} disabled={index === 1} > <FaArrowRightLong  className={`${index === 1 ? 'text-gray-400':''}`}  /></button>
+                    <button className='cursor-pointer' onClick={handlePrevious} disabled={index === 0}><FaArrowLeftLong className={`${index === 0 ? 'text-gray-400' : ''}`} /></button>
+                    <button className='cursor-pointer' onClick={handleNext} disabled={index === 1} > <FaArrowRightLong className={`${index === 1 ? 'text-gray-400' : ''}`} /></button>
                 </div>
             </div>
+
+           
         </div>
     );
 }

@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import Image from 'next/image'
 import CardList from '../CardList'
 import { graphics, icons } from '@/assets'
+import { useRouter } from 'next/navigation'
 
 const CardListData = [
     {
@@ -28,6 +29,7 @@ const CardListData = [
 ]
 
 function ThanksForSubmitting() {
+    const router=useRouter()
     return (
         <>
             <section className="flex flex-col lg:flex-row gap-4 justify-center items-center p-4 m-auto">
@@ -64,7 +66,7 @@ function ThanksForSubmitting() {
                         <CardFooter>
                             <div className='flex gap-x-4'>
 
-                                <VibancButton text="Awesome let's finish my listing" isIcon={true} className='' />
+                                <VibancButton text="Awesome let's finish my listing" isIcon={true} className='' onClick={()=>{router.push("/seller/my-listing")}} />
                             </div>
                         </CardFooter>
 

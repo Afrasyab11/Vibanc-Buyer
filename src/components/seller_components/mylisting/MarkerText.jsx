@@ -71,7 +71,7 @@ import Image from 'next/image';
 import logo from '@/assets/images/bulb.png';
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
-export default function Todo(props) {
+export default function MarkerText() {
     const [index, setIndex] = useState(0);
     const todoData = [
         {

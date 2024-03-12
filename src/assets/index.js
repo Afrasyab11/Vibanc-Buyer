@@ -17,7 +17,11 @@ import marketplace from "./images/marketplace.png"
 import craft from   "./images/craft.png"
 import connect from "./images/connect.png"
 import prepare from "./images/prepare.png"
-import range from "./images/range.png"
+import range from "./images/range.png";
+import next_icon from "./images/next_arrow.png"
+import mob_icon from "./images/mobIcon.png"
+import hide from "./images/UX/Icon/Action/hide.png"
+import star from "./images/UX/Icon/Action/star.png"
 
 const icons = {
     tell_icon,
@@ -34,7 +38,10 @@ const icons = {
     craft,
     connect,
     prepare,
-    range
+    range,
+    next_icon,
+    hide,
+    star
 
 }
 
@@ -43,11 +50,14 @@ const icons = {
 import whatYouWantToDo from "./images/whatYouWantToDo.png"
 import GetReadyForMarketplace from "./images/GetReadyForMarketplace.png"
 import submittingGraphics from "./images/submittingGraphics.png"
+import listingCardIcon from "./images/ListingCardIcon.png"
+
 
 const graphics = {
     whatYouWantToDo,
     GetReadyForMarketplace,
-    submittingGraphics
+    submittingGraphics,
+    listingCardIcon
 }
 
 

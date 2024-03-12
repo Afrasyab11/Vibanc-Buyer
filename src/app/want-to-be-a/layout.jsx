@@ -1,11 +1,11 @@
-import NavigationBar from "@/components/header/NavigationBar"
+import Header from "@/components/header/Header";
 
 export default function Layout({ children }) {
 
     return (
         <> 
-            <NavigationBar />
-         <div className="px-40">
+        <Header />
+         <div className="px-40 mt-16">
                 {children}
         </div>
         </>

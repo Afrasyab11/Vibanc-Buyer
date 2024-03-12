@@ -13,7 +13,7 @@ function CardList(props) {
       </div>
       <div className=''>
         <h1 className=' font-bold my-4 '>{props.heading}</h1>
-        <p className='my-4'>{props.paragraph}</p>
+        <h6 className='my-4  text-[16px] font-normal'>{props.paragraph}</h6>
       </div>
     </article>
   );

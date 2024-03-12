@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6'
 import { RiLoader4Line } from 'react-icons/ri';
@@ -9,14 +9,23 @@ import { useRouter } from 'next/navigation';
 import { VibancButton } from './VibancButtons';
 
 function WhatDoYouWant() {
-const router =useRouter()
+    const router = useRouter()
     const loader = false;
     const disabled = false;
+    const [startUp, setStartUp] = useState("")
+    console.log("startUP", startUp)
 
-    const handledClick=()=>{
-
-        router.push("/seller")
-    }
+    const handledClick = () => {
+        const pathMap = {
+            seller: "/seller/get-ready",
+            buyer: "/buyer/get-ready",
+        };
+    
+        const path = pathMap[startUp];
+        if (path) {
+            router.push(path);
+        }
+    };
     return (
         <>
             <section className='container mx-auto flex flex-col md:flex-row justify-center content-center gap-2 py-12'>
@@ -34,13 +43,26 @@ const router =useRouter()
                         
                         `}>
 
-                            <input type="radio" name="doWithStartup" id="sellStartup" className=' checked:accent-[#009F88]' />
-                            <label htmlFor="sellStartup" className='mx-2'>I want to sell my startup</label>
+                            <input type="radio" value="seller"
+                                onChange={(e) => {
+                                    setStartUp(e.target.value);
+                                }}
+                                checked={startUp === "seller"}
+
+                                name="doWithStartup" id="sellStartup" className=' checked:accent-[#009F88]' />
+                            <label htmlFor="sellStartup" className='mx-2 text-lg font-normal '>I want to sell my startup</label>
                         </div>
                         <div className="buyStartup outline outline-1 outline-[#cccccc] rounded-md  py-2 px-4 my-2">
 
-                            <input type="radio" name="doWithStartup" id="buyStartup" className=' checked:accent-[#009F88]' />
-                            <label htmlFor="buyStartup" className='mx-2'>I want to buy a startup</label>
+                            <input type="radio"
+                            value="buyer"
+                                onChange={(e) => {
+                                    setStartUp(e.target.value);
+                                }}
+                                checked={startUp === "buyer"}
+
+                                name="doWithStartup" id="buyStartup" className=' checked:accent-[#009F88]' />
+                            <label htmlFor="buyStartup" className='mx-2 text-lg font-normal' >I want to buy a startup</label>
                         </div>
                     </div>
                     {/* next button for submission --> */}
