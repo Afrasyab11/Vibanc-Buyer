@@ -41,7 +41,9 @@ const icons = {
     range,
     next_icon,
     hide,
-    star
+    star,
+    mob_icon
+    
 
 }
 
