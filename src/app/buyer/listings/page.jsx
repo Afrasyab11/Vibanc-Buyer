@@ -1,6 +1,6 @@
 import React from 'react'
 import ListingCards from '@/components/buyer_components/listings/ListingCards';
-import { icons, graphics } from '@/assets/index.js';
+import { graphics } from '@/assets/index.js';
 
 const dummyData = [
     {
