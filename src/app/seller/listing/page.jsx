@@ -15,21 +15,21 @@ export default function page() {
 
       <div className=' lg:flex justify-between w-[100%] mx-auto mt-12'>
         <div className='px-2 flex justify-center'>
-          {/* <Todo /> */}
+          <Todo />
         </div>
         <div className='px-2 flex justify-center'>
-          {/* <MarketText /> */}
+          <MarketText />
         </div>
       </div>
 
       <div className='bg-white  lg:flex gap-x-6 w-[100%] mx-auto mt-12'>
         <div className='lg:w-[70%] mx-auto shadow rounded-xl p-4 mt-12 lg:mt-0'>
-          {/* <Summary /> */}
+          <Summary />
         </div>
         {/* This div is for private information */}
         <div className='lg:w-[30%] mx-auto shadow rounded-xl p-4 mt-12 lg:mt-0 h-fit'>
-          {/* <PrivateInfo />
-          <AccordionComponent /> */}
+          <PrivateInfo />
+          <AccordionComponent />
         </div>
       </div>
       {/* This div is for financials and metrics */}
