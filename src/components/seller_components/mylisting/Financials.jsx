@@ -1,3 +1,4 @@
+"use client"
 import { FinancialPerformance } from '@/components/dialog/FinancialPerformance';
 import React, { useState } from 'react';
 

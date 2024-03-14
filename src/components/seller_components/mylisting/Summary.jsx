@@ -1,3 +1,4 @@
+"use client"
 import { AcquisitionDetailsModal } from '@/components/dialog/AcquisitionDetailsModal';
 import { CompanyOverviewModal } from '@/components/dialog/CompanyOverviewModal';
 import { FinancialPerformance } from '@/components/dialog/FinancialPerformance';
