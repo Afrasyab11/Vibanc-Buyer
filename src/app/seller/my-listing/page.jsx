@@ -1,18 +1,13 @@
-// import CombineAll from '@/components/seller_components/mylisting/CombineAll'
-import React from 'react'
-import dynamic from 'next/dynamic'
+import React from 'react';
+import dynamic from 'next/dynamic';
 
-const DynamicComponentWithNoSSR = dynamic(() => import('@/components/seller_components/mylisting/CombineAll'), {
+const CombineAll = dynamic(() => import('@/components/seller_components/mylisting/CombineAll'), {
   ssr: false
-})
-export default () => <DynamicComponentWithNoSSR />
-// export default function page() {
-//   return (
+});
 
-//     <div>
-//       <CombineAll />
-//     </div>
+const MyListingPage = () => <CombineAll />;
 
-//   )
-// }
+// Set display name for debugging
+MyListingPage.displayName = 'MyListingPage';
 
+export default MyListingPage;
