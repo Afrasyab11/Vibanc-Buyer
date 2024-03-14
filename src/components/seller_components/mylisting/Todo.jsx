@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '@/assets/images/Capa_1.png';
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
-import { Dialog } from '@/components/ui/dialog';
 
 export default function Todo(props) {
     const [index, setIndex] = useState(0);
