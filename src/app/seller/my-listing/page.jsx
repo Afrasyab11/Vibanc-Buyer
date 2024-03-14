@@ -7,7 +7,5 @@ const CombineAll = dynamic(() => import('@/components/seller_components/mylistin
 
 const MyListingPage = () => <CombineAll />;
 
-// Set display name for debugging
-MyListingPage.displayName = 'MyListingPage';
 
 export default MyListingPage;
