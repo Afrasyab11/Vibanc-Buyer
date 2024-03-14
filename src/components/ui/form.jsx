@@ -1,13 +1,16 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { Controller, FormProvider, useFormContext } from "react-hook-form";
+import dynamic from 'next/dynamic';
 
 import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
 
 const Form = FormProvider
 
-const FormFieldContext = typeof window !== 'undefined' ? React.createContext({}) : null;
+const FormFieldProvider = dynamic(() => import('react').then(mod => mod.createContext({})), {
+  ssr: false
+});
 
 const FormField = (
   {
@@ -15,14 +18,14 @@ const FormField = (
   }
 ) => {
   return (
-    (FormFieldContext && <FormFieldContext.Provider value={{ name: props.name }}>
+    (<FormFieldProvider.Provider value={{ name: props.name }}>
       <Controller {...props} />
-    </FormFieldContext.Provider>)
+    </FormFieldProvider.Provider>)
   );
 }
 
 const useFormField = () => {
-  const fieldContext = React.useContext(FormFieldContext)
+  const fieldContext = React.useContext(FormFieldProvider)
   const itemContext = React.useContext(FormItemContext)
   const { getFieldState, formState } = useFormContext()
 
@@ -44,15 +47,17 @@ const useFormField = () => {
   }
 }
 
-const FormItemContext = typeof window !== 'undefined' ? React.createContext({}) : null;
+const FormItemProvider = dynamic(() => import('react').then(mod => mod.createContext({})), {
+  ssr: false
+});
 
 const FormItem = React.forwardRef(({ className, ...props }, ref) => {
   const id = React.useId()
 
   return (
-    (FormItemContext && <FormItemContext.Provider value={{ id }}>
+    (<FormItemProvider.Provider value={{ id }}>
       <div ref={ref} className={cn("space-y-2", className)} {...props} />
-    </FormItemContext.Provider>)
+    </FormItemProvider.Provider>)
   );
 })
 FormItem.displayName = "FormItem"
