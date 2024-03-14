@@ -13,13 +13,17 @@ import { Calendar } from "../ui/calendar";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
-import ReactQuill from 'react-quill';
+// import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { cn } from "@/lib/utils";
 import { FaCalendar } from "react-icons/fa";
 import { format } from "date-fns";
+import dynamic from 'next/dynamic';
 
+const ReactQuill = dynamic(() => import('react-quill'), {
+  ssr: false
+});
 export function CompanyOverviewModal({ open, setOpen }) {
 
     const [date, setDate] = useState(new Date());
