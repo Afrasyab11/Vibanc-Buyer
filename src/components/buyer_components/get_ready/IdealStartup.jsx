@@ -2,8 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import BussinessDream from "@/assets/images/bussinessDream.png";
-// import tellIcon from "@/assets/images/tell_icon.png";
-// import craft from "@/assets/images/craft.png";
+import tellIcon from "@/assets/images/tell_icon.png";
+import craft from "@/assets/images/craft.png";
 import { icons } from "@/assets";
 import { VibancButton } from "@/components/common/VibancButtons";
 import { WithoutBorderVibancButton } from "@/components/common/VibancButtons";
@@ -12,27 +12,27 @@ export const IdealStartup = ({ nextStep }) => {
     console.log("trigger");
     nextStep();
   };
-  const CardListData = [
-    {
-      src: icons.tell_icon,
-      alt: "craft_icon",
-      heading: "Craft the perfect listing",
-      paragraph:
-        "Attract more interest with help from our customer success team.",
-    },
-    {
-      src: icons.craft,
-      alt: "connect_icon",
-      heading: "Connect with qualified buyers",
-      paragraph: "Find the right buyer with advice from our acquisition experts.",
-    },
-    {
-      src: icons.approve_icon,
-      alt: "prepare_icon",
-      heading: "Prepare for an easy exit",
-      paragraph: "Get help with data rooms, legal documents, and much more.",
-    },
-  ];
+  // const CardListData = [
+  //   {
+  //     src: icons.tell_icon,
+  //     alt: "craft_icon",
+  //     heading: "Craft the perfect listing",
+  //     paragraph:
+  //       "Attract more interest with help from our customer success team.",
+  //   },
+  //   {
+  //     src: icons.craft,
+  //     alt: "connect_icon",
+  //     heading: "Connect with qualified buyers",
+  //     paragraph: "Find the right buyer with advice from our acquisition experts.",
+  //   },
+  //   {
+  //     src: icons.approve_icon,
+  //     alt: "prepare_icon",
+  //     heading: "Prepare for an easy exit",
+  //     paragraph: "Get help with data rooms, legal documents, and much more.",
+  //   },
+  // ];
   return (
     <>
       <div className="2xl:grid 2xl:grid-cols-12 xl:grid xl:grid-cols-12 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12 gap-x-11 gap-2 py-16 px-3 lg:px-14">
