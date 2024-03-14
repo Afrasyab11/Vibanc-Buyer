@@ -1,12 +1,12 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
 import { Controller, FormProvider, useFormContext } from "react-hook-form";
 import dynamic from 'next/dynamic';
 
-import { cn } from "@/lib/utils"
-import { Label } from "@/components/ui/label"
+import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
 
-const Form = FormProvider
+const Form = FormProvider;
 
 const FormFieldProvider = dynamic(() => import('react').then(mod => mod.createContext({})), {
   ssr: false
@@ -18,7 +18,7 @@ const FormField = (
   }
 ) => {
   return (
-    (<FormFieldProvider.Provider value={{ name: props.name }}>
+    (FormFieldProvider && <FormFieldProvider.Provider value={{ name: props.name }}>
       <Controller {...props} />
     </FormFieldProvider.Provider>)
   );
@@ -55,7 +55,7 @@ const FormItem = React.forwardRef(({ className, ...props }, ref) => {
   const id = React.useId()
 
   return (
-    (<FormItemProvider.Provider value={{ id }}>
+    (FormItemProvider && <FormItemProvider.Provider value={{ id }}>
       <div ref={ref} className={cn("space-y-2", className)} {...props} />
     </FormItemProvider.Provider>)
   );
