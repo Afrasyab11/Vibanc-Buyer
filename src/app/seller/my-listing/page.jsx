@@ -5,7 +5,12 @@ const CombineAll = dynamic(() => import('@/components/seller_components/mylistin
   ssr: false
 });
 
-const MyListingPage = () => <CombineAll />;
+ function Page(){
+  return(
+    <div>
+      <CombineAll/>
+    </div>
 
-
-export default MyListingPage;
+  )
+}
+export default Page;
