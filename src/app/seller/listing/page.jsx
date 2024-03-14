@@ -15,7 +15,7 @@ export default function page() {
 
       <div className=' lg:flex justify-between w-[100%] mx-auto mt-12'>
         <div className='px-2 flex justify-center'>
-          <Todo />
+          {/* <Todo /> */}
         </div>
         <div className='px-2 flex justify-center'>
           {/* <MarketText /> */}
