@@ -24,7 +24,7 @@ export default function page() {
 
       <div className='bg-white  lg:flex gap-x-6 w-[100%] mx-auto mt-12'>
         <div className='lg:w-[70%] mx-auto shadow rounded-xl p-4 mt-12 lg:mt-0'>
-          <Summary />
+          {/* <Summary /> */}
         </div>
         {/* This div is for private information */}
         <div className='lg:w-[30%] mx-auto shadow rounded-xl p-4 mt-12 lg:mt-0 h-fit'>
