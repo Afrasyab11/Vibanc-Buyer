@@ -32,8 +32,8 @@ export default async function RootLayout({ children }) {
           <ToastContainer />
         </body>
       </html>
- 
-   
+
+
     </Providers>
   );
 }

@@ -166,7 +166,7 @@ export const CountryFilter = ({
           isDisabled={countryList.length === 0}
           onClick={nextStep}
           text={"Next"}
-          //   isIcon={nextBtn}
+            isIcon={true}
         />
       </div>
     </div>

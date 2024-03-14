@@ -12,7 +12,7 @@ function VibancButton( { isDisabled, isLoader, isIcon, text, className,onClick, 
     // Define the base classes based on the disabled state
     const baseClasses = isDisabled ? 'rounded-full bg-[#519187] px-6' : 'rounded-full bg-[#234c46] px-6';
     return (
-        <Button disabled={isDisabled} onClick={onClick} className={`${baseClasses} ${className}`} {...rest}>
+        <Button disabled={isDisabled} onClick={onClick} className={`sm:text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[22px] sm:h-6 md:h-8 ${baseClasses} ${className}`} {...rest}>
             {isLoader ? (
                 <>
                     <RiLoader4Line size={17} className="text-white animate-spin mr-1" />
@@ -65,7 +65,7 @@ function WithoutBorderVibancButton(props) {
     // Define the base classes based on the disabled state
 
     return (
-        <Button variant="outline" className={`bg-transparent border-none p-2 text-[#234C4699] focus:outline-none text-[14px] ${className}`} {...rest}>
+        <Button variant="outline" className={`bg-transparent border-none p-2 text-[#234C4699] focus:outline-none sm:text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[22px] sm:h-6 md:h-8 ${className}`} {...rest}>
             {text}
         </Button>
     );

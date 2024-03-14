@@ -1,10 +1,4 @@
 "use client";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { icons } from "@/assets";
 import Image from "next/image";
 import { Input } from "../../../ui/input";
@@ -15,7 +9,7 @@ import {
 } from "@/components/common/VibancButtons";
 import { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
-
+import { convertNumberToSuffix } from "@/components/common/functions";
 export const TtmProfit = ({
   price,
   setPrice,
@@ -58,7 +52,7 @@ export const TtmProfit = ({
             <Slider
               className="md:w-3/5 "
               min={0}
-              max={16}
+              max={20}
               value={[Number(price?.minTtmNet), Number(price?.maxTtmNet)]}
               onChange={(e, newValue) => {
                 setPrice({
@@ -67,6 +61,8 @@ export const TtmProfit = ({
                   maxTtmNet: newValue[1],
                 });
               }}
+              size="small"
+              disableSwap
             />
           </div>
         </div>
@@ -76,11 +72,11 @@ export const TtmProfit = ({
               Min TTM net profit
             </Label>
             <Input
-              type="number"
-              min={price?.minTtmNet}
+              type="text"
+              pattern="[0-9]*"
               className="border-border_black rounded-xl"
               placeholder="0"
-              value={price?.minTtmNet}
+              value={convertNumberToSuffix(price?.minTtmNet, false)}
               onChange={(e) => {
                 setPrice({ ...price, minTtmNet: e.target.value });
               }}
@@ -91,14 +87,14 @@ export const TtmProfit = ({
               Max TTM net profit
             </Label>
             <Input
-              type="number"
-              min={"0"}
-              max={price?.maxTtmNet}
+              type="text"
+              pattern="[0-9]*"
               className="border-border_black rounded-xl"
-              placeholder="16x+"
-              value={price?.maxTtmNet}
+              placeholder="20x+"
+              value={convertNumberToSuffix(price?.maxTtmNet,true, 20)}
               onChange={(e) => {
-                setPrice({ ...price, maxTtmNet: e.target.value });
+                const newValue = e.target.value.replace(/[x+]/g, "");
+                setPrice({ ...price, maxTtmNet: newValue });
               }}
             />
           </div>
@@ -115,7 +111,7 @@ export const TtmProfit = ({
           isDisabled={price.maxTtmNet <= 0}
           onClick={nextStep}
           text={"Next"}
-          //   isIcon={nextBtn}
+          isIcon={true}
         />
       </div>
     </div>

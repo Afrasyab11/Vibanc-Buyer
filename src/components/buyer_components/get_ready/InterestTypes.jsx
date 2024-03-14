@@ -1,49 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { icons } from "@/assets";
 import { InterestCards } from "@/components/common/InterestCards";
-const inputCards = [
-  {
-    id: "marketplace",
-    text: "Marketplace",
-    icon: icons.marketplace,
-  },
-  {
-    id: "saaS",
-    text: "SaaS",
-    icon: icons.saaS,
-  },
-  {
-    id: "content",
-    text: "Content",
-    icon: icons.content,
-  },
-  {
-    id: "agency",
-    text: "Agency",
-    icon: icons.agency,
-  },
-  {
-    id: "ecommerce",
-    text: "E-commerce",
-    icon: icons.ecommerce,
-  },
-  {
-    id: "shopify",
-    text: "Shopify app",
-    icon: icons.shopify,
-  },
-  {
-    id: "mobileapp",
-    text: "Mobile App",
-    icon: icons.mobileapp,
-  },
-  {
-    id: "other",
-    text: "Other",
-    icon: icons.other,
-  },
-];
+
 
 export const InterestTypes = ({ nextStep, setFormData }) => {
   const [selectedCards, setSelectedCards] = useState([]);
@@ -73,7 +31,6 @@ export const InterestTypes = ({ nextStep, setFormData }) => {
         handleCardSelection={handleCardSelection}
         handledClickNext={handledClickNext}
         selectedCards={selectedCards}
-        inputCards={inputCards}
         title={"Which startup types interest you?"}
       />
     </>

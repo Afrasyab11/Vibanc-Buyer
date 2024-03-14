@@ -17,7 +17,6 @@ export const PriceRange = ({
   backStep,
   setCurrentStep,
 }) => {
-
   useEffect(() => {
     if (price.minAsk !== "" && price.maxAsk > 0) {
       setCurrentStep(0);
@@ -25,6 +24,36 @@ export const PriceRange = ({
       setCurrentStep(-1);
     }
   }, [price?.minAsk, price?.maxAsk, setCurrentStep]);
+
+
+  const formatNumberToCurrency = (value, isMaxAsk, maxValue) => {
+    let suffix = "";
+    if (isMaxAsk && value === maxValue) {
+      suffix = "+";
+    }
+
+    if (!isNaN(value)) {
+      const formattedNumber = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      }).format(value);
+
+      return `${formattedNumber}${suffix}`;
+    }
+
+    return value;
+  };
+
+  const parseCurrencyToNumber = (value, isMaxAsk) => {
+    const cleanValue = value.replace(/[$,+]/g, "");
+    const number = parseFloat(cleanValue);
+    if (isNaN(number)) {
+      return isMaxAsk ? 2000000 : 0;
+    }
+
+    return number;
+  };
 
   return (
     <div className="flex flex-col gap-y-5 px-3  md:px-0">
@@ -62,6 +91,8 @@ export const PriceRange = ({
                   maxAsk: newValue[1],
                 });
               }}
+              size="small"
+              disableSwap
             />
           </div>
         </div>
@@ -71,13 +102,17 @@ export const PriceRange = ({
               Min asking price
             </Label>
             <Input
-              type="number"
+              type="text"
+              pattern="\d+"
               min={price?.minAsk}
               className="border-border_black rounded-xl"
               placeholder="0"
-              value={price?.minAsk}
+              value={formatNumberToCurrency(price?.minAsk, false)}
               onChange={(e) => {
-                setPrice({ ...price, minAsk: e.target.value });
+                setPrice({
+                  ...price,
+                  minAsk: parseCurrencyToNumber(e.target.value),
+                });
               }}
             />
           </div>
@@ -86,14 +121,14 @@ export const PriceRange = ({
               Max asking price
             </Label>
             <Input
-              type="number"
-              min={"0"}
-              max={price?.maxAsk}
+              type="text"
+              pattern="[0-9]*"
               className="border-border_black rounded-xl"
               placeholder="$2,000,000+"
-              value={price.maxAsk}
+              value={formatNumberToCurrency(price.maxAsk, true, 2000000)}
               onChange={(e) => {
-                setPrice({ ...price, maxAsk: e.target.value });
+                const newValue = e.target.value.replace(/[$+,]/g, "");
+                setPrice({ ...price, maxAsk: newValue });
               }}
             />
           </div>
@@ -110,7 +145,7 @@ export const PriceRange = ({
           isDisabled={price.maxAsk <= 0}
           onClick={nextStep}
           text={"Next"}
-          //   isIcon={nextBtn}
+          isIcon={true}
         />
       </div>
     </div>

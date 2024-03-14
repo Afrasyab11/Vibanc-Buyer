@@ -9,9 +9,9 @@ export default function EmptyInbox() {
                 <p>Your connnection will appera here</p>
             </div>
             <div className="col-span-1 md:col-span-1 lg:col-span-1 h-full bg-[#ebeaff] px-3 text-center flex flex-col justify-center items-center">
-               <Image src={img} w={400} h={600} alt = "image" />
-               <h1 className='font-semibold text-lg py-6'>Your inbox is empty</h1>
-               <p className=''>{"Buyers have to make the first move - and once they do, you'll chat with them here."}</p>
+                <Image src={img} w={400} h={600} alt="image" />
+                <h1 className='font-semibold text-lg py-6'>Your inbox is empty</h1>
+                <p className=''>{"Buyers have to make the first move - and once they do, you'll chat with them here."}</p>
             </div>
             <div className="col-span-1 md:col-span-1 lg:col-span-1">
                 <p>Chat details will appera here</p>

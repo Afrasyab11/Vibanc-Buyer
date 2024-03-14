@@ -15,7 +15,7 @@ import {
 } from "@/components/common/VibancButtons";
 import { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
-
+import { convertNumberToSuffix } from "@/components/common/functions";
 export const ProfitMultiple = ({
   price,
   setPrice,
@@ -24,7 +24,7 @@ export const ProfitMultiple = ({
   setCurrentStep,
 }) => {
   useEffect(() => {
-    if (price.minTtmProfit !== "" && price.maxTtmProfit> 0) {
+    if (price.minTtmProfit !== "" && price.maxTtmProfit > 0) {
       setCurrentStep(2);
     } else {
       setCurrentStep(1);
@@ -67,6 +67,8 @@ export const ProfitMultiple = ({
                   maxTtmProfit: newValue[1],
                 });
               }}
+              size="small"
+              disableSwap
             />
           </div>
         </div>
@@ -76,11 +78,11 @@ export const ProfitMultiple = ({
               Min TTM net profit multiple
             </Label>
             <Input
-              type="number"
-              min={price?.minTtmProfit}
+              type="text"
+              pattern="[0-9]*"
               className="border-border_black rounded-xl"
               placeholder="0"
-              value={price?.minTtmProfit}
+              value={convertNumberToSuffix(price?.minTtmProfit, false)}
               onChange={(e) => {
                 setPrice({ ...price, minTtmProfit: e.target.value });
               }}
@@ -91,14 +93,14 @@ export const ProfitMultiple = ({
               Max TTM net profit multiple
             </Label>
             <Input
-              type="number"
-              min={"0"}
-              max={price?.maxTtmProfit}
+              type="text"
+              pattern="[0-9]*"
               className="border-border_black rounded-xl"
               placeholder="20x+"
-              value={price?.maxTtmProfit}
+              value={convertNumberToSuffix(price?.maxTtmProfit,true,20)}
               onChange={(e) => {
-                setPrice({ ...price, maxTtmProfit: e.target.value });
+                const newValue = e.target.value.replace(/[x+]/g, "")
+                setPrice({ ...price, maxTtmProfit: newValue });
               }}
             />
           </div>
@@ -115,7 +117,7 @@ export const ProfitMultiple = ({
           isDisabled={price.maxTtmPrfit <= 0}
           onClick={nextStep}
           text={"Next"}
-          //   isIcon={nextBtn}
+          isIcon={true}
         />
       </div>
     </div>

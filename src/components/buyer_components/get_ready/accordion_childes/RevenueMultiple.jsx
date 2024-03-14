@@ -15,7 +15,9 @@ import {
 } from "@/components/common/VibancButtons";
 import { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
-
+import {
+  convertNumberToSuffix,
+} from "@/components/common/functions";
 export const RevenueMultiple = ({
   price,
   setPrice,
@@ -24,7 +26,7 @@ export const RevenueMultiple = ({
   setCurrentStep,
 }) => {
   useEffect(() => {
-    if (price.minTtm !== "" && price.maxTtm >0) {
+    if (price.minTtm !== "" && price.maxTtm > 0) {
       setCurrentStep(1);
     } else {
       setCurrentStep(0);
@@ -67,6 +69,8 @@ export const RevenueMultiple = ({
                   maxTtm: newValue[1],
                 });
               }}
+              size="small"
+              disableSwap
             />
           </div>
         </div>
@@ -76,11 +80,11 @@ export const RevenueMultiple = ({
               Min TTM net revenue multiple
             </Label>
             <Input
-              type="number"
-              min={price?.minTtm}
+              type="text"
+              pattern="[0-9]*"
               className="border-border_black rounded-xl"
               placeholder="0"
-              value={price?.minTtm}
+              value={convertNumberToSuffix(price?.minTtm, false)}
               onChange={(e) => {
                 setPrice({ ...price, minTtm: e.target.value });
               }}
@@ -91,14 +95,14 @@ export const RevenueMultiple = ({
               Max TTM net revenue multiple
             </Label>
             <Input
-              type="number"
-              min={"0"}
-              max={price?.maxTtm}
+              type="text"
+              pattern="[0-9]*"
               className="border-border_black rounded-xl"
               placeholder="16x+"
-              value={price?.maxTtm}
+              value={convertNumberToSuffix(price?.maxTtm, true, 16)}
               onChange={(e) => {
-                setPrice({ ...price, maxTtm: e.target.value });
+                const newValue = e.target.value.replace(/[x+]/g, "");
+                setPrice({ ...price, maxTtm: newValue });
               }}
             />
           </div>
@@ -115,7 +119,7 @@ export const RevenueMultiple = ({
           isDisabled={price.maxTtm <= 0}
           onClick={nextStep}
           text={"Next"}
-          //   isIcon={nextBtn}
+          isIcon={true}
         />
       </div>
     </div>

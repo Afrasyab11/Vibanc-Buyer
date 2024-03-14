@@ -22,7 +22,9 @@ import next_icon from "./images/next_arrow.png"
 import mob_icon from "./images/mobIcon.png"
 import hide from "./images/UX/Icon/Action/hide.png"
 import star from "./images/UX/Icon/Action/star.png"
-
+import starred from "./images/UX/Icon/Action/starred.png"
+import revenue from "./images/revenue.png";
+import profit from "./images/profit.png";
 const icons = {
     tell_icon,
     price_icon,
@@ -41,9 +43,10 @@ const icons = {
     range,
     next_icon,
     hide,
-    star,
-    mob_icon
-    
+    star, 
+    starred,
+    revenue,
+    profit,
 
 }
 

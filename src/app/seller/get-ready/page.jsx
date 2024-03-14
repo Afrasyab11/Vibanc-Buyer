@@ -15,10 +15,6 @@ export default function GetReady(){
       <GetReadyForMarketPlace setGetReadyStep={setGetReadyStep} /> : getReadyStep=="describe_startup" ?
       <DescribeStartup setGetReadyStep={setGetReadyStep}/>: getReadyStep=="startup_url" ? <ItemOpened setGetReadyStep={setGetReadyStep}/> :<ThanksForSubmitting/> 
      }
-  
-
-    
-   
      </>
     )
   }

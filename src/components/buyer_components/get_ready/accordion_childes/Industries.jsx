@@ -65,7 +65,7 @@ export const Industry = ({
   const handleButtonClick = (item, Name) => {
     console.log("Name", Name);
     if (!interestList.includes(item)) {
-      setInterestList((prev) => [...prev, item]);
+      setInterestList((prev) => [item, ...prev]);
       setInterestSources((prev) => ({ ...prev, [item]: Name }));
       setIndustries((prev) => prev.filter((i) => i !== item));
       setBusinessModal((prev) => prev.filter((i) => i !== item));
@@ -79,11 +79,11 @@ export const Industry = ({
     const source = interestSources[item];
     if (source) {
       if (source === "Industries") {
-        setIndustries((prev) => [...prev, item]);
+        setIndustries((prev) => [item, ...prev]);
       } else if (source === "BusinessModal") {
-        setBusinessModal((prev) => [...prev, item]);
+        setBusinessModal((prev) => [item, ...prev]);
       } else if (source === "TechStack") {
-        setTeckStack((prev) => [...prev, item]);
+        setTeckStack((prev) => [item, ...prev]);
       }
 
       // Remove the item from interestSources
@@ -188,8 +188,7 @@ export const Industry = ({
           isDisabled={interestList.length === 0}
           onClick={nextStep}
           text={"Next"}
-          //   isIcon={nextBtn}
-        />
+          isIcon={true}        />
       </div>
     </div>
   );

@@ -1,108 +1,106 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
-import CardList from '../CardList';
+import CardList from "../CardList";
 import { graphics, icons } from "@/assets/index.js";
-import { VibancButton, GhostVibancButton, } from "@/components/common/VibancButtons";
-import { useRouter } from 'next/navigation';
+import {
+  VibancButton,
+  GhostVibancButton,
+  WithoutBorderVibancButton,
+} from "@/components/common/VibancButtons";
+import { useRouter } from "next/navigation";
 //data from figma design:
 const CardListData = [
-    {
-        src: icons.tell_icon,
-        alt: 'tell_icon',
-        heading: 'Tell us about your startup',
-        paragraph: 'Answer a few questions to build your basic listing.'
-    },
-    {
-        src: icons.price_icon,
-        alt: 'price_icon',
-        heading: 'We\'ll recommend an asking price',
-        paragraph: 'Attract offers with an estimate based on real acquisition data.'
-    },
-    {
-        src: icons.approve_icon,
-        alt: 'approve_icon',
-        heading: 'Get pre-approved in 24 hours',
-        paragraph: 'This should take about 2 minutes to complete.'
-
-    }
-]
-
-
-
+  {
+    src: icons.tell_icon,
+    alt: "tell_icon",
+    heading: "Tell us about your startup",
+    paragraph: "Answer a few questions to build your basic listing.",
+  },
+  {
+    src: icons.price_icon,
+    alt: "price_icon",
+    heading: "We'll recommend an asking price",
+    paragraph:
+      "Attract offers with an estimate based on real acquisition data.",
+  },
+  {
+    src: icons.approve_icon,
+    alt: "approve_icon",
+    heading: "Get pre-approved in 24 hours",
+    paragraph: "This should take about 2 minutes to complete.",
+  },
+];
 
 function GetReadyForMarketPlace({ setGetReadyStep }) {
+  const router = useRouter();
+  const handledClick = () => {
+    setGetReadyStep("describe_startup");
+  };
+  return (
+    <>
+      <div className="2xl:grid 2xl:grid-cols-12 xl:grid xl:grid-cols-12 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12 gap-x-11 gap-2  py-16 px-4 lg:px-14">
+        <div className="2xl:col-span-6 xl:col-span-7 lg:col-span-7 md:col-span-7 ">
+          <section className=" flex flex-col gap-y-8 2xl:gap-y-14 ">
+            <div className=" lg:pl-10 xl:pl-[59px] sm:text-center md:text-start lg:text-start">
+              <p className="sm:text-[14px] md:text-[17px] lg:text-[19px] xl:text-[24px] 2xl:text-[40px]  font-[700] text-green_dark">
+                Let’s get you ready for the marketplace
+              </p>
+            </div>
+            {CardListData?.map((item) => (
+              <>
+                <div className="lg:grid lg:grid-cols-12 md:grid md:grid-cols-12 flex gap-y-8 gap-x-4">
+                  <span className="md:col-span-1 lg:col-span-1 flex justify-center items-center">
+                    <Image
+                      src={item?.src}
+                      className="min:h-[80px]"
+                      alt={item?.alt}
+                    />
+                  </span>
+                  <span className="md:col-span-11 lg:col-span-11 flex flex-col gap-y-2">
+                    <p className="sm:text-[14px] md:text-[16px] lg:text-[15px] xl:text-[16px] 2xl:text-[26px]  font-[600] text-green_light">
+                      {item?.heading}
+                    </p>
+                    <p className=" text-green_light sm:text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[22px] ">
+                      {item?.paragraph}
+                    </p>
+                  </span>
+                </div>
+              </>
+            ))}
 
-    const router=useRouter()
-    const handledClick = () => {
-        setGetReadyStep("describe_startup")
-    }
-    return (
-        <>
-            <section className="flex flex-col lg:flex-row gap-4 justify-center items-center p-4 m-auto">
-
-
-                <section id="getReadyText">
-                    <Card className="border-none shadow-none">
-                        <CardHeader>
-                            <CardTitle className='text-[#234C46] text-2xl font-bold'>Let’s get you ready for the marketplace</CardTitle>
-                            <CardDescription>Get pre-approved for listing</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <div className='flex flex-col gap-y-6'>
-
-                                {
-                                    CardListData.map((item, index) => {
-                                        return (
-                                            <CardList
-                                                key={index}
-                                                src={item.src}
-                                                alt={item.alt}
-                                                heading={item.heading}
-                                                paragraph={item.paragraph}
-                                            />
-                                        )
-                                    })
-                                }
-                            </div>
-
-                        </CardContent>
-
-                        <CardFooter>
-                            <div>
-                            <div className='flex gap-x-4'>
-                                <GhostVibancButton text='Not Now' className=''  onClick={()=>{router.push("/seller/my-listing")}} />
-                                <VibancButton text="Awesome let's go" isIcon={true} className='' onClick={handledClick} />
-                            </div>
-                            <div className='text-[16px] font-normal my-4 px-3 '>
-                                This should take about 2 minutes to complete.
-                            </div>
-                            </div>
-                            
-                           
-                        </CardFooter>
-                       
-                       
-                    </Card>
-
-                </section>
-                <section id="getReadyGraphic">
-                    <div>
-                        <Image src={graphics.GetReadyForMarketplace} alt='get_ready' className='' />
-                    </div>
-
-                </section>
-            </section>
-
-        </>
-    )
+            <div className="flex justify-row gap-x-3 lg:pl-8 xl:pl-[55px] 2xl:pl-[80px]">
+              <WithoutBorderVibancButton
+                text={"Not now"}
+              />
+              <VibancButton
+                text={"Awesome, let's go"}
+                isIcon={true}
+                onClick={handledClick}
+              />
+            </div>
+            <div className="flex justify-row sm:pl-0 text-nowrap  lg:pl-10 xl:pl-14 2xl:pl-[80px] sm:text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[22px]">
+              <p>This should take about 2 minutes to complete.</p>
+            </div>
+          </section>
+        </div>
+        <div className="2xl:col-span-6 xl:col-span-5 lg:col-span-5 md:col-span-5 flex xl:justify-end  2xl:justify-center">
+          <Image
+            className="hidden md:block  object-fit md:h-[300px] h-[360px] lg:h-[390px] xl:h-[415px] 2xl:h-full"
+            src={graphics.GetReadyForMarketplace}
+            alt="My Dream Bussiness"
+          />
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default GetReadyForMarketPlace
+export default GetReadyForMarketPlace;

@@ -1,23 +1,70 @@
 import Image from "next/image";
 import { Card, CardContent } from "../ui/card";
 import { VibancButton } from "@/components/common/VibancButtons";
+import { icons } from "@/assets";
 
 export const InterestCards = ({
   handleCardSelection,
   handledClickNext,
-  inputCards,
   selectedCards,
   title,
 }) => {
+  const inputCards = [
+    {
+      id: "marketplace",
+      text: "Marketplace",
+      icon: icons.marketplace,
+    },
+    {
+      id: "saaS",
+      text: "SaaS",
+      icon: icons.saaS,
+    },
+    {
+      id: "content",
+      text: "Content",
+      icon: icons.content,
+    },
+    {
+      id: "agency",
+      text: "Agency",
+      icon: icons.agency,
+    },
+    {
+      id: "ecommerce",
+      text: "E-commerce",
+      icon: icons.ecommerce,
+    },
+    {
+      id: "shopify",
+      text: "Shopify app",
+      icon: icons.shopify,
+    },
+    {
+      id: "mobileapp",
+      text: "Mobile App",
+      icon: icons.mobileapp,
+    },
+    {
+      id: "other",
+      text: "Other",
+      icon: icons.other,
+    },
+  ];
   return (
     <>
       <div className="w-full px-2 pt-14 md:w-4/4 lg:w-3/4 xl:w-2/4 gap-y-14 pb-14 mx-auto flex flex-col  justify-center">
         <section className="mx-auto">
-          <h1 className="w-fit text-green_dark sm:text-[14px] md:text-[16px] xl:text-[22px] text-[20px] font-bold">{title}</h1>
+          <h1 className="w-fit text-green_dark sm:text-[14px] md:text-[16px] xl:text-[22px] text-[20px] font-bold">
+            {title}
+          </h1>
         </section>
-        <section className=" lg:grid lg:grid-cols-12 sm:grid sm:grid-cols-12 md:grid md:grid-cols-12 gap-5 gap-y-4 text-sm lg:p-4 px-14">
+        <section className=" lg:grid lg:grid-cols-12 sm:grid sm:grid-cols-12 md:grid md:grid-cols-12 gap-x-4 gap-y-4 text-sm lg:p-4 px-14">
           {inputCards.map((card, index) => (
-            <div key={index} className="lg:col-span-3 md:col-span-3 sm:col-span-12 ">
+            <div
+              key={index}
+              className="lg:col-span-3 md:col-span-3 sm:col-span-12 "
+            >
               <Card
                 key={index}
                 onClick={() => handleCardSelection(card.text)}
@@ -35,7 +82,9 @@ export const InterestCards = ({
                     height={50}
                     layout="fixed"
                   />
-                  <p className="w-fit font-semibold sm:text-[12px] md:text-[13px] lg:text-[14px] xl:[21px] 2xl:text-[20px]">{card.text}</p>
+                  <p className="w-fit font-semibold sm:text-[12px] md:text-[13px] lg:text-[14px] xl:[21px] 2xl:text-[20px]">
+                    {card.text}
+                  </p>
                 </CardContent>
               </Card>
             </div>

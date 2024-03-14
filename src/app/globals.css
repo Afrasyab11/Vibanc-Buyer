@@ -147,7 +147,10 @@ input[type="number"] {
   width: 22px !important;
   height: 22px !important;
 }
-
+.css-53tbrc-MuiSlider-root {
+  color: #009f88 !important;
+  padding: 0 0 !important;
+}
 /* //swiper css started */
 
 .tag-swiper .swiper-slide {
@@ -192,10 +195,10 @@ input[type="number"] {
   margin-left: -12px !important;
   padding: 0 20px 0 20px !important;
   background: linear-gradient(
-    270deg,
+    90deg,
     #ffffff 0%,
     #ffffff 74.19%,
-    rgba(255, 255, 255, 0.8) 100%
+    rgba(255, 255, 255, 0) 100%
   ) !important;
   border-radius: 30% !important;
 }
@@ -219,4 +222,21 @@ input[type="number"] {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.react-tel-input .form-control {
+  position: relative;
+  font-size: 14px;
+  letter-spacing: 0.01rem;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-left: 48px;
+  margin-left: 0;
+  background: #ffffff;
+  border: 1px solid #cacaca;
+  border-radius: 5px;
+  line-height: 25px;
+  height: 35px;
+  width: auto !important;
+  outline: none;
 }

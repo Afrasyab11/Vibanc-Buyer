@@ -9,7 +9,7 @@ import {
 } from "@/components/common/VibancButtons";
 import { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
-
+import { convertNumberToSuffix } from "@/components/common/functions";
 export const TtmRevenue = ({
   price,
   setPrice,
@@ -61,6 +61,8 @@ export const TtmRevenue = ({
                   maxTtmGross: newValue[1],
                 });
               }}
+              size="small"
+              disableSwap
             />
           </div>
         </div>
@@ -70,11 +72,11 @@ export const TtmRevenue = ({
               Min TTM gross revenue
             </Label>
             <Input
-              type="number"
-              min={price?.minTtmGross}
+              type="text"
+              pattern="[0-9]*"
               className="border-border_black rounded-xl"
               placeholder="0"
-              value={price?.minTtmGross}
+              value={convertNumberToSuffix(price?.minTtmGross,false)}
               onChange={(e) => {
                 setPrice({ ...price, minTtmGross: e.target.value });
               }}
@@ -85,14 +87,14 @@ export const TtmRevenue = ({
               Max TTM gross revenue
             </Label>
             <Input
-              type="number"
-              min={"0"}
-              max={price?.maxTtmGross}
+              type="text"
+              pattern="[0-9]*"
               className="border-border_black rounded-xl"
               placeholder="20x+"
-              value={price?.maxTtmGross}
+              value={convertNumberToSuffix(price?.maxTtmGross,true,20)}
               onChange={(e) => {
-                setPrice({ ...price, maxTtmGross: e.target.value });
+                const newValue = e.target.value.replace(/[x+]/g, "");
+                setPrice({ ...price, maxTtmGross:newValue });
               }}
             />
           </div>
@@ -109,7 +111,7 @@ export const TtmRevenue = ({
           isDisabled={price.maxTtmGross <= 0}
           onClick={nextStep}
           text={"Next"}
-          //   isIcon={nextBtn}
+            isIcon={true}
         />
       </div>
     </div>
