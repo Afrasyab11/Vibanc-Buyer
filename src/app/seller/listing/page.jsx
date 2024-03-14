@@ -18,7 +18,7 @@ export default function page() {
           <Todo />
         </div>
         <div className='px-2 flex justify-center'>
-          <MarketText />
+          {/* <MarketText /> */}
         </div>
       </div>
 
