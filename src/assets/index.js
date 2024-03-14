@@ -20,8 +20,8 @@ import prepare from "./images/prepare.png"
 import range from "./images/range.png";
 import next_icon from "./images/next_arrow.png"
 import mob_icon from "./images/mobIcon.png"
-import hide from "./images/UX/Icon/Action/hide.png"
-import star from "./images/UX/Icon/Action/star.png"
+// import hide from "./images/UX/Icon/Action/hide.png"
+// import star from "./images/UX/Icon/Action/star.png"
 import starred from "./images/UX/Icon/Action/starred.png"
 import revenue from "./images/revenue.png";
 import profit from "./images/profit.png";
@@ -42,8 +42,8 @@ const icons = {
     prepare,
     range,
     next_icon,
-    hide,
-    star, 
+    // hide,
+    // star, 
     starred,
     revenue,
     profit,
@@ -55,7 +55,7 @@ const icons = {
 import whatYouWantToDo from "./images/whatYouWantToDo.png"
 import GetReadyForMarketplace from "./images/GetReadyForMarketplace.png"
 import submittingGraphics from "./images/submittingGraphics.png"
-import listingCardIcon from "./images/ListingCardIcon.png"
+import listingCardIcon from "./images/listingCardIcon.png"
 
 
 const graphics = {

@@ -1,14 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import CardList from "../CardList";
 import { graphics, icons } from "@/assets/index.js";
 import {
   VibancButton,
@@ -16,23 +7,26 @@ import {
   WithoutBorderVibancButton,
 } from "@/components/common/VibancButtons";
 import { useRouter } from "next/navigation";
+import tellIcon from "../../assets/images/mobIcon.png";
+import pricIcon from "../../assets/images/price_icon.png";
+import approveIcon from "../../assets/images/approve_icon.png";
 //data from figma design:
 const CardListData = [
   {
-    src: icons.tell_icon,
+    src: tellIcon,
     alt: "tell_icon",
     heading: "Tell us about your startup",
     paragraph: "Answer a few questions to build your basic listing.",
   },
   {
-    src: icons.price_icon,
+    src: pricIcon,
     alt: "price_icon",
     heading: "We'll recommend an asking price",
     paragraph:
       "Attract offers with an estimate based on real acquisition data.",
   },
   {
-    src: icons.approve_icon,
+    src: approveIcon,
     alt: "approve_icon",
     heading: "Get pre-approved in 24 hours",
     paragraph: "This should take about 2 minutes to complete.",
