@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 
 const Form = FormProvider
 
-// const FormFieldContext = React.createContext({})
+const FormFieldContext = typeof window !== 'undefined' ? React.createContext({}) : null;
 
 const FormField = (
   {
@@ -15,15 +15,15 @@ const FormField = (
   }
 ) => {
   return (
-    // (<FormFieldContext.Provider value={{ name: props.name }}>
+    (FormFieldContext && <FormFieldContext.Provider value={{ name: props.name }}>
       <Controller {...props} />
-    // </FormFieldContext.Provider>)
+    </FormFieldContext.Provider>)
   );
 }
 
 const useFormField = () => {
-  // const fieldContext = React.useContext(FormFieldContext)
-  // const itemContext = React.useContext(FormItemContext)
+  const fieldContext = React.useContext(FormFieldContext)
+  const itemContext = React.useContext(FormItemContext)
   const { getFieldState, formState } = useFormContext()
 
   const fieldState = getFieldState(fieldContext.name, formState)
@@ -44,15 +44,15 @@ const useFormField = () => {
   }
 }
 
-// const FormItemContext = React.createContext({})
+const FormItemContext = typeof window !== 'undefined' ? React.createContext({}) : null;
 
 const FormItem = React.forwardRef(({ className, ...props }, ref) => {
   const id = React.useId()
 
   return (
-    // (<FormItemContext.Provider value={{ id }}>
+    (FormItemContext && <FormItemContext.Provider value={{ id }}>
       <div ref={ref} className={cn("space-y-2", className)} {...props} />
-    // </FormItemContext.Provider>)
+    </FormItemContext.Provider>)
   );
 })
 FormItem.displayName = "FormItem"
