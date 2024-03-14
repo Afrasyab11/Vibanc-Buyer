@@ -1,10 +1,10 @@
 import Financials from '@/components/seller_components/mylisting/Financials'
-// import MarketText from '@/components/seller_components/mylisting/MarkerText'
+import MarketText from '@/components/seller_components/mylisting/MarkerText'
 import Metrics from '@/components/seller_components/mylisting/Metrics'
 import { AccordionComponent } from '@/components/seller_components/mylisting/privateinformation/AccordionComponent'
 import PrivateInfo from '@/components/seller_components/mylisting/privateinformation/PrivateInfo'
 import Summary from '@/components/seller_components/mylisting/Summary'
-// import Todo from '@/components/seller_components/mylisting/Todo'
+import Todo from '@/components/seller_components/mylisting/Todo'
 import React from 'react'
 
 import { FaAngleDown } from "react-icons/fa";
@@ -15,10 +15,10 @@ export default function page() {
 
       <div className=' lg:flex justify-between w-[100%] mx-auto mt-12'>
         <div className='px-2 flex justify-center'>
-          {/* <Todo /> */}
+          <Todo />
         </div>
         <div className='px-2 flex justify-center'>
-          {/* <MarketText /> */}
+          <MarketText />
         </div>
       </div>
 
