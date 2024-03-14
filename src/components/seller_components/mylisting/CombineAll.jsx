@@ -2,8 +2,6 @@
 import React, { useState } from 'react'
 import Todo from './Todo'
 import Summary from './Summary'
-import PrivateInfo from './privateinformation/PrivateInfo'
-import { AccordionComponent } from './privateinformation/AccordionComponent'
 import Financials from './Financials'
 import Metrics from './Metrics'
 import MarkerText from './MarkerText'
