@@ -37,7 +37,7 @@ export default function page() {
       <div className='mt-6'   >
         {/* First div for Financials */}
         <div className='mx-auto shadow rounded-xl p-4 mt-12 lg:mt-0'>
-          <Financials />
+          {/* <Financials /> */}
         </div>
         {/* Second div that is for metrics */}
 
