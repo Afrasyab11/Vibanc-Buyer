@@ -29,7 +29,7 @@ export default function page() {
         {/* This div is for private information */}
         <div className='lg:w-[30%] mx-auto shadow rounded-xl p-4 mt-12 lg:mt-0 h-fit'>
           <PrivateInfo />
-          <AccordionComponent />
+          {/* <AccordionComponent /> */}
         </div>
       </div>
       {/* This div is for financials and metrics */}
