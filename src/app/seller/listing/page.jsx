@@ -1,3 +1,4 @@
+import React from 'react'
 import Financials from '@/components/seller_components/mylisting/Financials'
 import MarketText from '@/components/seller_components/mylisting/MarkerText'
 import Metrics from '@/components/seller_components/mylisting/Metrics'
@@ -5,7 +6,6 @@ import { AccordionComponent } from '@/components/seller_components/mylisting/pri
 import PrivateInfo from '@/components/seller_components/mylisting/privateinformation/PrivateInfo'
 import Summary from '@/components/seller_components/mylisting/Summary'
 import Todo from '@/components/seller_components/mylisting/Todo'
-import React from 'react'
 
 import { FaAngleDown } from "react-icons/fa";
 

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import logo from '@/assets/images/Capa_1.png';
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
-export default function Todo(props) {
+export default function Todo() {
     const [index, setIndex] = useState(0);
     const todoData = [
         {
